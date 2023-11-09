@@ -1,0 +1,24 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Django Blog</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+<body>
+    <h1>Edit - {{author.name}}</h1>
+    <div class="container">
+    <form method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Submit" class="btn btn-success" >
+        <input type="button" value="Button" class="btn btn-danger" >
+    </form>
+    {% if message %}
+        {{message}}
+    {% endif %}
+    </div>
+    
+</body>
+</html>
